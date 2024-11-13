@@ -3,3 +3,5 @@ server:
 agency-api:
  base-url: http://localhost:8081
  fetch-url: ${agency-api.base-url}/api/agency/all
+ username: admin
+ password: admin123

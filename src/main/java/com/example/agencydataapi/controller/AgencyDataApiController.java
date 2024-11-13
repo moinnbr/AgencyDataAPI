@@ -1,6 +1,6 @@
 package com.example.agencydataapi.controller;
 import com.example.agencydataapi.model.AgencyRefData;
-import com.example.agencydataapi.service.AgencyService;
+import com.example.agencydataapi.service.AgencyDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,16 +10,16 @@ import java.util.List;
 @RequestMapping("/api/agencydata")
 public class AgencyDataApiController {
 @Autowired
-private AgencyService agencyService;
+private AgencyDataService agencyDataService;
 @GetMapping("/fetch-and-save")
 public String fetchAndSaveAgencyRefData() {
 List<AgencyRefData> agencyRefDataList =
-agencyService.fetchAndTransformAgencyData();
-agencyService.saveAgencyRefData(agencyRefDataList);
+agencyDataService.fetchAndTransformAgencyData();
+agencyDataService.saveAgencyRefData(agencyRefDataList);
 return "Agency reference data saved successfully.";
 }
 @GetMapping("/ref-data")
 public List<AgencyRefData> getAgencyRefData() {
-return agencyService.fetchAndTransformAgencyData();
+return agencyDataService.fetchAndTransformAgencyData();
 }
 }
